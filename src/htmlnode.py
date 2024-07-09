@@ -17,7 +17,6 @@ class HTMLNode:
         return html_str
 
     def __repr__(self):
-        return "HTMLNode(" + str(self.tag) +", "+str(self.value)+", " "num_children" + str(len(self.children))
-
+        return "HTMLNode(" + str(self.tag) +", "+str(self.value)+")"
 
 

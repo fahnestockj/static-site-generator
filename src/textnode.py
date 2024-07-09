@@ -1,12 +1,12 @@
 class TextNode:
     def __init__(self, text, text_type, url=None):
-        self.text = text
+        self.text: str = text
         self.text_type = text_type
-        self.url = url
+        self.url: str | None = url
 
     def __eq__(self, textnode):
         return (self.text == textnode.text) and (self.text_type == textnode.text_type) and (self.url == textnode.url)
 
     def __repr__(self):
-        return "TextNode("+self.text+", "+self.text_type+", "+self.url+")"
+        return "TextNode("+self.text+", "+self.text_type+")"
 
