@@ -17,6 +17,10 @@ class HTMLNode:
         return html_str
 
     def __repr__(self):
-        return "HTMLNode(" + str(self.tag) +", "+str(self.value)+")"
+        child_string = ""
+        if self.children:
+            for child in self.children:
+                child_string += child.__repr__()
+        return "HTMLNode(tag:" + str(self.tag) +", value:"+str(self.value) + " children: " + child_string + ")"
 
 

@@ -1,13 +1,6 @@
-from textnode import TextNode
-
+from build import build_static_content
 def main():
-  a = TextNode("This is a text node", "bold", "https://www.boot.dev")
-
-  print(a.__repr__())
-
-
-    if
-
+  build_static_content()
 
 
 
