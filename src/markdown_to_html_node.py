@@ -13,4 +13,7 @@ def markdown_to_html_node(markdown: str):
         for child_node in node.children:
             if isinstance(child_node, LeafNode) and child_node.value == None:
                 print("FOUND IT", child_node)
+                #print("parent_node", node)
+
+        #print(html_nodes)
     return ParentNode(html_nodes, "div")

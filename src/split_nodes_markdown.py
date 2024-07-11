@@ -9,14 +9,12 @@ def split_nodes_image(old_nodes: list[TextNode]):
         if node.text_type != "text_type_text" or len(images) == 0:
             new_nodes.append(node)
             continue
-    
         for image_tup in images:
             split_text = node.text.split(f"![{image_tup[0]}]({image_tup[1]})", 1)
             # Should split into two sections
             if split_text[0] != "": new_nodes.append(TextNode(split_text[0], "text_type_text"))
             new_nodes.append(TextNode(image_tup[0], "text_type_image", image_tup[1]))
             if split_text[1] != "": new_nodes.append(TextNode(split_text[1], "text_type_text"))
-
     return new_nodes
 
 

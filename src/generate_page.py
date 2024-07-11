@@ -35,6 +35,7 @@ def generate_page_and_dest_path(from_path, proj_root_dir):
     template_path = os.path.join(proj_root_dir, "template.html")
     rel_path_from_content = os.path.relpath(from_path, os.path.join(proj_root_dir, "content"))
     dest_path = os.path.join(os.path.join(proj_root_dir, "public"), rel_path_from_content)
+    dest_path = dest_path.replace(".md", ".html")
     generate_page(from_path, template_path, dest_path)
 
 

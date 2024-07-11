@@ -16,7 +16,7 @@ def text_node_to_html_node(node: TextNode):
             return LeafNode(node.text, "a", props)
         case "text_type_image":
             props = { "src": node.url, "alt": node.text }
-            return LeafNode(None, "img", props)
+            return LeafNode(node.text, "img", props)
 
         case _:
             raise Exception("unsupported text_type for text_node_to_html_node()")
