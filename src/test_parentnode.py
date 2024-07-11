@@ -11,7 +11,7 @@ class TestParentNode(unittest.TestCase):
         children = [link_leaf, code_leaf]
         parent_paragraph = ParentNode(children, "p")
 
-        expected_output = "<p><a>I am a link</a><code>I am code</code></p>"
+        expected_output = "<p><a href=https://fahnestockj.com  rel=noreferrer >I am a link</a><code>I am code</code></p>"
         self.assertEqual(parent_paragraph.to_html(), expected_output)
 
     def test_nested_to_html(self):
