@@ -8,5 +8,7 @@ class TextNode:
         return (self.text == textnode.text) and (self.text_type == textnode.text_type) and (self.url == textnode.url)
 
     def __repr__(self):
-        return "TextNode("+self.text+", "+self.text_type+")"
+        url_str = ""
+        if self.url: url_str = self.url
+        return "TextNode("+self.text+", "+self.text_type+ " url:" + url_str +")"
 

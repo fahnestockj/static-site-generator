@@ -18,18 +18,24 @@ def block_to_html_node(block: str) -> ParentNode:
                 hashtag_count = 0
                 for char in block[:6]:
                     if char == "#": hashtag_count += 1
-
+                block = block[hashtag_count:].strip()
+                text_nodes = text_to_textnodes(block)
                 leafnodes = list(map(text_node_to_html_node, text_nodes))
                 return ParentNode(leafnodes, f"h{hashtag_count}")
 
 
             case "code":
                 # wrap in <code> tags and generate nested leafnodes
+                block = block.replace("```", "")
+                text_nodes = text_to_textnodes(block)
+
                 leafnodes = list(map(text_node_to_html_node, text_nodes))
                 return ParentNode(leafnodes, "code")
             
             case "quote":
                 # wrap in <code> tags and generate nested leafnodes
+                block = block[1:].strip()
+                text_nodes = text_to_textnodes(block)
                 leafnodes = list(map(text_node_to_html_node, text_nodes))
                 return ParentNode(leafnodes, "blockquote")
 
@@ -37,6 +43,7 @@ def block_to_html_node(block: str) -> ParentNode:
                 # unordered_list <ul> <li> ...
                 parent_nodes = []
                 for line in block.splitlines():
+                    line = line[1:].strip()
                     line_text_nodes = text_to_textnodes(line)
                     leafnodes = list(map(text_node_to_html_node, line_text_nodes))
                     parent_nodes.append(ParentNode(leafnodes, "li"))
@@ -46,6 +53,7 @@ def block_to_html_node(block: str) -> ParentNode:
                 # ordered_list <ol> <li> ...
                 parent_nodes = []
                 for line in block.splitlines():
+                    line = line[2:].strip()
                     line_text_nodes = text_to_textnodes(line)
                     leafnodes = list(map(text_node_to_html_node, line_text_nodes))
                     parent_nodes.append(ParentNode(leafnodes, "li"))

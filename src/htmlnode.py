@@ -13,7 +13,7 @@ class HTMLNode:
             return ""
         html_str = ""
         for key in self.props:
-            html_str = html_str + key + "=" + self.props[key] + " "
+            html_str = html_str + " " + key + "=" + self.props[key] + " "
         return html_str
 
     def __repr__(self):

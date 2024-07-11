@@ -9,7 +9,7 @@ class ParentNode(HTMLNode):
         if self.tag == None:
             raise ValueError("Parentnode needs a tag to wrap html")
         if self.children == None:
-            raise ValueError("Parentnode needs childrend")
+            raise ValueError("Parentnode needs children")
 
         html_string = "<" + self.tag + self.props_to_html()+ ">"
         

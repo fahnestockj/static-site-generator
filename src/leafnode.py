@@ -11,10 +11,11 @@ class LeafNode(HTMLNode):
         html_str = ""
         
         html_str = self.value
+        props_str = self.props_to_html()
 
 
         if self.tag:
-            html_opening_tag = "<" + self.tag + ">"
+            html_opening_tag = "<" + self.tag + props_str + ">"
             html_closing_tag = "</" + self.tag + ">"
             html_str = html_opening_tag + html_str + html_closing_tag
         return html_str

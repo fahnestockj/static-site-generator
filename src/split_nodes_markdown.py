@@ -35,5 +35,6 @@ def split_nodes_link(old_nodes: list[TextNode]):
             if split_text[0] != "": new_nodes.append(TextNode(split_text[0], "text_type_text"))
             new_nodes.append(TextNode(link_tup[0], "text_type_link", link_tup[1]))
             if split_text[1] != "": new_nodes.append(TextNode(split_text[1], "text_type_text"))
+        print("new_nodes", new_nodes)
 
     return new_nodes

@@ -17,7 +17,6 @@ def split_nodes_delimiter(old_nodes: list[TextNode], delimiter, text_type):
         if len(split_text_list) == 1:
             new_nodes.append(TextNode(split_text_list[0], "text_type_text"))
             continue
-
         if len(split_text_list) % 2 == 0:
             raise Exception("Closing delimeter not found, no nested delimeters are supported")
 
